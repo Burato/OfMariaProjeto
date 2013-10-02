@@ -2,6 +2,7 @@ package br.com.ofmaria.model;
 
 public class ClientePF extends PessoaFisica {
 
+    
     private Veiculo veiculo;
     private double debitos;
 
