@@ -14,7 +14,7 @@ public class Produto { //um produto pode ser aplicado em vários veiculos
         this.nome = nome;
         this.valorCusto = valorCusto;
         this.valorFinal = valorFinal;
-        this.aplicavelEm = aplicavelEm;
+        this.aplicavelEm = aplicavelEm; //veículo a qual se aplica o produto
         this.qtdDisponivel = qtdDisponivel;
     }
 
