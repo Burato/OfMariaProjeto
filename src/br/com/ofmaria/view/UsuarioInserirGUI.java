@@ -25,7 +25,9 @@ public class UsuarioInserirGUI extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
+        grupoSexo = new javax.swing.ButtonGroup();
         painelFundo = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         txCodigo = new javax.swing.JTextField();
@@ -42,7 +44,10 @@ public class UsuarioInserirGUI extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         txData = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        txSexo = new javax.swing.JTextField();
+        rbFeminino = new javax.swing.JRadioButton();
+        rbMasculino = new javax.swing.JRadioButton();
+        btLimpar = new javax.swing.JButton();
+        btSalvar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -116,25 +121,47 @@ public class UsuarioInserirGUI extends javax.swing.JFrame {
 
         jLabel8.setText("Sexo.:");
 
-        txSexo.setBorder(new javax.swing.border.MatteBorder(null));
-        txSexo.addActionListener(new java.awt.event.ActionListener() {
+        rbFeminino.setBackground(new java.awt.Color(255, 255, 255));
+        rbFeminino.setText("Feminino");
+
+        org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, grupoSexo, org.jdesktop.beansbinding.ObjectProperty.create(), rbFeminino, org.jdesktop.beansbinding.BeanProperty.create("selected"));
+        bindingGroup.addBinding(binding);
+
+        rbFeminino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txSexoActionPerformed(evt);
+                rbFemininoActionPerformed(evt);
             }
         });
+
+        rbMasculino.setBackground(new java.awt.Color(255, 255, 255));
+        rbMasculino.setText("Masculino");
+
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, grupoSexo, org.jdesktop.beansbinding.ObjectProperty.create(), rbMasculino, org.jdesktop.beansbinding.BeanProperty.create("selected"));
+        bindingGroup.addBinding(binding);
+
+        btLimpar.setText("Limpar");
+        btLimpar.setToolTipText("Limpa os campos");
+
+        btSalvar.setText("Salvar");
+        btSalvar.setToolTipText("Salvar");
 
         javax.swing.GroupLayout painelFundoLayout = new javax.swing.GroupLayout(painelFundo);
         painelFundo.setLayout(painelFundoLayout);
         painelFundoLayout.setHorizontalGroup(
             painelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(painelFundoLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelFundoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(painelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(painelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(painelFundoLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btLimpar)
+                        .addGap(31, 31, 31)
+                        .addComponent(btSalvar))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, painelFundoLayout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txNome))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelFundoLayout.createSequentialGroup()
+                    .addGroup(painelFundoLayout.createSequentialGroup()
                         .addGroup(painelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(painelFundoLayout.createSequentialGroup()
                                 .addComponent(jLabel1)
@@ -143,12 +170,14 @@ public class UsuarioInserirGUI extends javax.swing.JFrame {
                             .addGroup(painelFundoLayout.createSequentialGroup()
                                 .addComponent(jLabel8)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(rbFeminino)
+                                .addGap(18, 18, 18)
+                                .addComponent(rbMasculino)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 137, Short.MAX_VALUE)
                         .addComponent(jLabel7)
                         .addGap(18, 18, 18)
                         .addComponent(txData, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(painelFundoLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, painelFundoLayout.createSequentialGroup()
                         .addGroup(painelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelFundoLayout.createSequentialGroup()
                                 .addComponent(jLabel3)
@@ -159,7 +188,7 @@ public class UsuarioInserirGUI extends javax.swing.JFrame {
                         .addGroup(painelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(txCpf, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
                             .addComponent(txLogin))
-                        .addGap(200, 232, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(painelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelFundoLayout.createSequentialGroup()
                                 .addComponent(jLabel4)
@@ -197,10 +226,15 @@ public class UsuarioInserirGUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(painelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(txSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7)
-                    .addComponent(txData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(226, Short.MAX_VALUE))
+                    .addComponent(txData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rbFeminino)
+                    .addComponent(rbMasculino))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 172, Short.MAX_VALUE)
+                .addGroup(painelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btLimpar)
+                    .addComponent(btSalvar))
+                .addGap(24, 24, 24))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -217,6 +251,8 @@ public class UsuarioInserirGUI extends javax.swing.JFrame {
         );
 
         painelFundo.getAccessibleContext().setAccessibleName("");
+
+        bindingGroup.bind();
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -249,9 +285,9 @@ public class UsuarioInserirGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txDataActionPerformed
 
-    private void txSexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txSexoActionPerformed
+    private void rbFemininoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbFemininoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txSexoActionPerformed
+    }//GEN-LAST:event_rbFemininoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -288,6 +324,9 @@ public class UsuarioInserirGUI extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btLimpar;
+    private javax.swing.JButton btSalvar;
+    private javax.swing.ButtonGroup grupoSexo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -297,13 +336,15 @@ public class UsuarioInserirGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel painelFundo;
+    private javax.swing.JRadioButton rbFeminino;
+    private javax.swing.JRadioButton rbMasculino;
     private javax.swing.JTextField txCodigo;
     private javax.swing.JTextField txCpf;
     private javax.swing.JTextField txData;
     private javax.swing.JTextField txLogin;
     private javax.swing.JTextField txNome;
     private javax.swing.JTextField txSenha;
-    private javax.swing.JTextField txSexo;
     private javax.swing.JTextField txTelefone;
+    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }
