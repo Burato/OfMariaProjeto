@@ -4,6 +4,7 @@ import br.com.ofmaria.model.Usuario;
 import br.com.ofmaria.model.persistencia.dao.UsuarioDAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
@@ -46,6 +47,19 @@ public class UsuarioDAOImplements implements UsuarioDAO {
             pstm.setString(5, u.getTelefone());
             pstm.setDate(6, new java.sql.Date(u.getDataNascimento().getTime()));
             pstm.setString(7, u.getSexo());
+            pstm.execute();
+            
+            try(ResultSet rs = pstm.getGeneratedKeys()){
+                if (rs.next()) {
+                    retorno = rs.getInt(1);
+                }
+ 
+            }
+            
+            
+            
+            
+            
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Erro ao inserir: " + e);
         } finally {
