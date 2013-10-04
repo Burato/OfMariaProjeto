@@ -2,7 +2,6 @@ package br.com.ofmaria.model;
 
 public class ClientePJ extends PessoaJuridica {
 
-    
     private Veiculo veiculos; //veículos que pertencem á empresa cliente
     private double debitos;
 

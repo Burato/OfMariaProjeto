@@ -24,7 +24,7 @@ public class ConnectionFactory {
         } catch (Exception e) {
             throw new SQLException(e.getMessage());
         }
-        
+
     }
 
     //Método que fecha a conexão
@@ -53,4 +53,3 @@ public class ConnectionFactory {
         closeConnection(con, stmt);
     }
 }
-

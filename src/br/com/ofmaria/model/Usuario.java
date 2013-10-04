@@ -11,15 +11,11 @@ public class Usuario {
     private String telefone;
     private Date dataNascimento;
     private String sexo;
+    private String login;
 
-    public Usuario(int codigo, String nome, String senha, String cpf, String telefone, Date dataNascimento, String sexo) {
-        this.codigo = codigo;
-        this.nome = nome;
-        this.senha = senha;
-        this.cpf = cpf;
-        this.telefone = telefone;
-        this.dataNascimento = dataNascimento;
-        this.sexo = sexo;
+    @Override
+    public String toString() {
+        return "Usuario{" + "codigo=" + codigo + ", nome=" + nome + ", senha=" + senha + ", cpf=" + cpf + ", telefone=" + telefone + ", dataNascimento=" + dataNascimento + ", sexo=" + sexo + ", login=" + login + '}';
     }
 
     public int getCodigo() {
@@ -78,8 +74,22 @@ public class Usuario {
         this.sexo = sexo;
     }
 
-    @Override
-    public String toString() {
-        return "Usuario{" + "codigo=" + codigo + ", nome=" + nome + ", senha=" + senha + ", cpf=" + cpf + ", telefone=" + telefone + ", dataNascimento=" + dataNascimento + ", sexo=" + sexo + '}';
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public Usuario(int codigo, String nome, String senha, String cpf, String telefone, Date dataNascimento, String sexo, String login) {
+        this.codigo = codigo;
+        this.nome = nome;
+        this.senha = senha;
+        this.cpf = cpf;
+        this.telefone = telefone;
+        this.dataNascimento = dataNascimento;
+        this.sexo = sexo;
+        this.login = login;
     }
 }
