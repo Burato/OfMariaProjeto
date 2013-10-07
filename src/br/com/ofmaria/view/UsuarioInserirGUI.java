@@ -4,6 +4,11 @@
  */
 package br.com.ofmaria.view;
 
+import br.com.ofmaria.controller.UsuarioController;
+import br.com.ofmaria.model.Usuario;
+import java.text.SimpleDateFormat;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author guest01
@@ -141,9 +146,19 @@ public class UsuarioInserirGUI extends javax.swing.JFrame {
 
         btLimpar.setText("Limpar");
         btLimpar.setToolTipText("Limpa os campos");
+        btLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btLimparActionPerformed(evt);
+            }
+        });
 
         btSalvar.setText("Salvar");
         btSalvar.setToolTipText("Salvar");
+        btSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSalvarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout painelFundoLayout = new javax.swing.GroupLayout(painelFundo);
         painelFundo.setLayout(painelFundoLayout);
@@ -173,7 +188,7 @@ public class UsuarioInserirGUI extends javax.swing.JFrame {
                                 .addComponent(rbFeminino)
                                 .addGap(18, 18, 18)
                                 .addComponent(rbMasculino)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 137, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 334, Short.MAX_VALUE)
                         .addComponent(jLabel7)
                         .addGap(18, 18, 18)
                         .addComponent(txData, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -198,7 +213,7 @@ public class UsuarioInserirGUI extends javax.swing.JFrame {
                                 .addComponent(jLabel6)
                                 .addGap(34, 34, 34)
                                 .addComponent(txTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(197, 197, 197))
+                .addGap(0, 0, 0))
         );
         painelFundoLayout.setVerticalGroup(
             painelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -212,11 +227,12 @@ public class UsuarioInserirGUI extends javax.swing.JFrame {
                     .addComponent(txNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(18, 18, 18)
-                .addGroup(painelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(painelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
+                    .addGroup(painelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel3)
+                        .addComponent(txLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel4)))
                 .addGap(18, 18, 18)
                 .addGroup(painelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -289,9 +305,49 @@ public class UsuarioInserirGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_rbFemininoActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void btLimparActionPerformed(java.awt.event.ActionEvent evt)
+    {
+    txCodigo.setText("");
+    txNome.setText("");
+    txLogin.setText("");
+    txSenha.setText("");
+    txCpf.setText("");
+    txTelefone.setText("");
+    txData.setText("");
+    grupoSexo.clearSelection();
+    }
+    
+/*    
+    private void btLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparActionPerformed
+    }//GEN-LAST:event_btLimparActionPerformed
+*/
+    private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
+        // TODO add your handling code here:
+        Usuario u = new Usuario();
+        u.setLogin(txLogin.getText());
+        u.setSenha(txSenha.getText());
+        u.setTelefone(txTelefone.getText());
+        u.setCpf(txCpf.getText());
+
+        if (rbFeminino.isSelected()) {
+            u.setSexo("Feminino");
+        } else if (rbMasculino.isSelected()) {
+            u.setSexo("Masculino");
+        }
+
+        try {
+            String data = txData.getText();
+            u.setData(new SimpleDateFormat("dd/MM/yyy").parse(data));
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro ao converter a data");
+        }
+        
+        UsuarioController uc = new UsuarioController();
+        uc.salvar(u);
+
+    }//GEN-LAST:event_btSalvarActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

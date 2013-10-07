@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 
 public class UsuarioDAOImplements implements UsuarioDAO {
 
-    private static final String INSERT = "insert into usuario(nome, login, senha, cpf, telefone, data_nascimento, sexo) values (?, ?, ?, ?, ?, ?, ? )";
+    private static final String INSERT = "insert into usuario(nome, login, senha, cpf, telefone, data, sexo) values (?, ?, ?, ?, ?, ?, ? )";
 
     @Override
     public int inserir(Usuario u) {
@@ -45,7 +45,7 @@ public class UsuarioDAOImplements implements UsuarioDAO {
             pstm.setString(3, u.getSenha());
             pstm.setString(4, u.getCpf());
             pstm.setString(5, u.getTelefone());
-            pstm.setDate(6, new java.sql.Date(u.getDataNascimento().getTime()));
+            pstm.setDate(6, new java.sql.Date(u.getData().getTime()));
             pstm.setString(7, u.getSexo());
             pstm.execute();
             

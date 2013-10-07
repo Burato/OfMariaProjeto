@@ -9,13 +9,16 @@ public class Usuario {
     private String senha;
     private String cpf;
     private String telefone;
-    private Date dataNascimento;
+    private Date data;
     private String sexo;
     private String login;
 
+    public Usuario() {//construtor precisa ser sem parâmetros para não dar erro na GUI
+    }
+
     @Override
     public String toString() {
-        return "Usuario{" + "codigo=" + codigo + ", nome=" + nome + ", senha=" + senha + ", cpf=" + cpf + ", telefone=" + telefone + ", dataNascimento=" + dataNascimento + ", sexo=" + sexo + ", login=" + login + '}';
+        return "Usuario{" + "codigo=" + codigo + ", nome=" + nome + ", senha=" + senha + ", cpf=" + cpf + ", telefone=" + telefone + ", data=" + data + ", sexo=" + sexo + ", login=" + login + '}';
     }
 
     public int getCodigo() {
@@ -58,12 +61,12 @@ public class Usuario {
         this.telefone = telefone;
     }
 
-    public Date getDataNascimento() {
-        return dataNascimento;
+    public Date getData() {
+        return data;
     }
 
-    public void setDataNascimento(Date dataNascimento) {
-        this.dataNascimento = dataNascimento;
+    public void setData(Date data) {
+        this.data = data;
     }
 
     public String getSexo() {
@@ -79,17 +82,6 @@ public class Usuario {
     }
 
     public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public Usuario(int codigo, String nome, String senha, String cpf, String telefone, Date dataNascimento, String sexo, String login) {
-        this.codigo = codigo;
-        this.nome = nome;
-        this.senha = senha;
-        this.cpf = cpf;
-        this.telefone = telefone;
-        this.dataNascimento = dataNascimento;
-        this.sexo = sexo;
         this.login = login;
     }
 }
