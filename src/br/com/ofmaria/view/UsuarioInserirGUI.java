@@ -313,7 +313,7 @@ public class UsuarioInserirGUI extends javax.swing.JFrame {
         if (rbFeminino.isSelected()) {
             u.setSexo("Feminino");
         } else if (rbMasculino.isSelected()) {
-            u.setSexo("Masculino");
+            u.setSexo("Masculino"); 
         }
 
        try {
