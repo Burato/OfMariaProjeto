@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -48,18 +49,18 @@ public class UsuarioDAOImplements implements UsuarioDAO {
             pstm.setDate(6, new java.sql.Date(u.getData().getTime()));
             pstm.setString(7, u.getSexo());
             pstm.execute();
-            
-            try(ResultSet rs = pstm.getGeneratedKeys()){
+
+            try (ResultSet rs = pstm.getGeneratedKeys()) {
                 if (rs.next()) {
                     retorno = rs.getInt(1);
                 }
- 
+
             }
-            
-            
-            
-            
-            
+
+
+
+
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Erro ao inserir: " + e);
         } finally {
@@ -78,7 +79,37 @@ public class UsuarioDAOImplements implements UsuarioDAO {
 
     @Override
     public List<Usuario> listAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        Connection con = null;
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
+        List<Usuario> usuarios = new ArrayList<>();
+
+        try {
+            con = ConnectionFactory.getConnection();
+            pstm = con.prepareStatement(LIST);
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                Usuario u = new Usuario();
+                u.setCodigo(rs.getInt("codigo"));
+                u.setCpf(rs.getString("cpf"));
+                u.setData(rs.getDate("data_nascimento"));
+                u.setLogin(rs.getString("login"));
+                u.setSenha(rs.getString("senha"));
+                u.setSexo(rs.getString("sexo"));
+                u.setTelefone(rs.getString("telefone"));
+                usuarios.add(u);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro ao listar as pessoas " + e.getMessage());
+        } finally {
+            try {
+                ConnectionFactory.closeConnection(con, pstm, rs);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Erro ao fechar a conexão" + e.getMessage());
+            }
+
+        }
     }
 
     @Override
