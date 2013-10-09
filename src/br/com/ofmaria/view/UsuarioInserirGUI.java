@@ -8,17 +8,20 @@ import br.com.ofmaria.controller.UsuarioController;
 import br.com.ofmaria.model.Usuario;
 import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author guest01
  */
 public class UsuarioInserirGUI extends javax.swing.JFrame {
+    private DefaultTableModel modelo;
 
     /**
      * Creates new form UsuarioInserirGUI
      */
-    public UsuarioInserirGUI() {
+    public UsuarioInserirGUI(DefaultTableModel modelo) {
+        this.modelo = modelo;
         initComponents();
     }
 
@@ -329,9 +332,10 @@ public class UsuarioInserirGUI extends javax.swing.JFrame {
         int id = uc.salvar(u);
 
         if (id > 0) {
-            //JOptionPane.showMessageDialog(null, "Salvo com sucesso!");            
             modelo.addRow(new Object[]{
                 id, u.getNome(), u.getCpf(), u.getLogin()});
+            JOptionPane.showMessageDialog(null, "Salvo com sucesso!");
+
         }
         dispose();
 
