@@ -52,6 +52,11 @@ public class UsuarioListaGUI extends javax.swing.JFrame {
         Scroll.setBackground(new java.awt.Color(255, 255, 255));
 
         btInserir.setText("Inserir");
+        btInserir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btInserirActionPerformed(evt);
+            }
+        });
 
         btEditar.setText("Editar");
 
@@ -124,6 +129,12 @@ public class UsuarioListaGUI extends javax.swing.JFrame {
     private void txPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txPesquisaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txPesquisaActionPerformed
+
+    private void btInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btInserirActionPerformed
+        // TODO add your handling code here:
+        UsuarioInserirGUI ui = new UsuarioInserirGUI();
+        ui.setVisible(true);
+    }//GEN-LAST:event_btInserirActionPerformed
 
     /**
      * @param args the command line arguments
