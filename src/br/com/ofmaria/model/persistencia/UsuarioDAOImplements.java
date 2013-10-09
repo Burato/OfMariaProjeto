@@ -17,6 +17,7 @@ public class UsuarioDAOImplements implements UsuarioDAO {
 
     private static final String INSERT = "insert into usuario(nome, login, senha, cpf, telefone, data, sexo) values (?, ?, ?, ?, ?, ?, ? )";
     private static final String LIST = "select * from Usuario";
+
     @Override
     public int inserir(Usuario u) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -33,7 +34,6 @@ public class UsuarioDAOImplements implements UsuarioDAO {
         }
         return -1;
     }
-    
 
     private int insert(Usuario u) throws SQLException {
         Connection con = null;

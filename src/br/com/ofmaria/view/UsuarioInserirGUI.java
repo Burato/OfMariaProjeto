@@ -15,6 +15,7 @@ import javax.swing.table.DefaultTableModel;
  * @author guest01
  */
 public class UsuarioInserirGUI extends javax.swing.JFrame {
+
     private DefaultTableModel modelo;
 
     /**
@@ -290,20 +291,19 @@ public class UsuarioInserirGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txDataActionPerformed
 
-    private void btLimparActionPerformed(java.awt.event.ActionEvent evt)
-    {
-    txCodigo.setText("");
-    txNome.setText("");
-    txLogin.setText("");
-    txSenha.setText("");
-    txCpf.setText("");
-    txTelefone.setText("");
-    txData.setText("");
-    grupoSexo.clearSelection();
+    private void btLimparActionPerformed(java.awt.event.ActionEvent evt) {
+        txCodigo.setText("");
+        txNome.setText("");
+        txLogin.setText("");
+        txSenha.setText("");
+        txCpf.setText("");
+        txTelefone.setText("");
+        txData.setText("");
+        grupoSexo.clearSelection();
     }
-    
-/*    
-    private void btLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparActionPerformed
+
+    /*    
+     private void btLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparActionPerformed
     }//GEN-LAST:event_btLimparActionPerformed
 */
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed

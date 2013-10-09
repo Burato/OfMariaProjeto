@@ -61,6 +61,11 @@ public class UsuarioListaGUI extends javax.swing.JFrame {
         btEditar.setText("Editar");
 
         btRemover.setText("Remover");
+        btRemover.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btRemoverActionPerformed(evt);
+            }
+        });
 
         txPesquisa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,6 +141,15 @@ public class UsuarioListaGUI extends javax.swing.JFrame {
         ui.setLocationRelativeTo(null);
         ui.setVisible(true);
     }//GEN-LAST:event_btInserirActionPerformed
+
+    private void btRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRemoverActionPerformed
+        // TODO add your handling code here:
+        int linhaSelecionada = -1;
+        linhaSelecionada = tabela.getSelectedRow();
+        if (linhaSelecionada > 0) {
+            int idUsuario = (int) tabela.getValueAt(linhaSelecionada, 0);
+        }
+    }//GEN-LAST:event_btRemoverActionPerformed
 
     /**
      * @param args the command line arguments
