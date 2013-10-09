@@ -4,6 +4,9 @@
  */
 package br.com.ofmaria.view;
 
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author guest01
@@ -13,8 +16,14 @@ public class UsuarioListaGUI extends javax.swing.JFrame {
     /**
      * Creates new form UsuarioListaGUI
      */
+    private JTable tabela;
+    private DefaultTableModel modelo = new DefaultTableModel();
+
     public UsuarioListaGUI() {
         initComponents();
+        criaJTable();
+        Scroll.setViewportView(tabela);
+
     }
 
     /**
@@ -31,7 +40,7 @@ public class UsuarioListaGUI extends javax.swing.JFrame {
         btInserir = new javax.swing.JButton();
         btEditar = new javax.swing.JButton();
         btRemover = new javax.swing.JButton();
-        txPesquisar = new javax.swing.JTextField();
+        txPesquisa = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -46,9 +55,9 @@ public class UsuarioListaGUI extends javax.swing.JFrame {
 
         btRemover.setText("Remover");
 
-        txPesquisar.addActionListener(new java.awt.event.ActionListener() {
+        txPesquisa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txPesquisarActionPerformed(evt);
+                txPesquisaActionPerformed(evt);
             }
         });
 
@@ -74,7 +83,7 @@ public class UsuarioListaGUI extends javax.swing.JFrame {
                             .addGroup(painelFundoLayout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addGap(18, 18, 18)
-                                .addComponent(txPesquisar)))))
+                                .addComponent(txPesquisa)))))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
         painelFundoLayout.setVerticalGroup(
@@ -82,7 +91,7 @@ public class UsuarioListaGUI extends javax.swing.JFrame {
             .addGroup(painelFundoLayout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addGroup(painelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addGap(49, 49, 49)
                 .addComponent(Scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -110,9 +119,9 @@ public class UsuarioListaGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txPesquisarActionPerformed
+    private void txPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txPesquisaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txPesquisarActionPerformed
+    }//GEN-LAST:event_txPesquisaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -155,6 +164,15 @@ public class UsuarioListaGUI extends javax.swing.JFrame {
     private javax.swing.JButton btRemover;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel painelFundo;
-    private javax.swing.JTextField txPesquisar;
+    private javax.swing.JTextField txPesquisa;
     // End of variables declaration//GEN-END:variables
+
+    private void criaJTable() {
+        tabela = new JTable(modelo);
+        modelo.addColumn("Id");
+        modelo.addColumn("Nome");
+        modelo.addColumn("Usuario");
+        modelo.addColumn("CPF");
+        
+    }
 }

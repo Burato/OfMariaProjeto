@@ -11,5 +11,8 @@ public class UsuarioController {
         UsuarioDAO dao = new UsuarioDAOImplements();
         return dao.salve(u);
     }
-    
+    public List<Usuario> listarTodos(){
+        UsuarioDAO dao = new UsuarioDAOImplements();
+        return dao.listAll();
+    }  
 }

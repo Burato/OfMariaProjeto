@@ -33,6 +33,7 @@ public class UsuarioDAOImplements implements UsuarioDAO {
         }
         return -1;
     }
+    
 
     private int insert(Usuario u) throws SQLException {
         Connection con = null;
@@ -110,6 +111,7 @@ public class UsuarioDAOImplements implements UsuarioDAO {
             }
 
         }
+        return usuarios;
     }
 
     @Override
