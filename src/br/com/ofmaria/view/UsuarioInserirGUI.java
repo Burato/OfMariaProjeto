@@ -314,53 +314,28 @@ public class UsuarioInserirGUI extends javax.swing.JFrame {
         if (rbFeminino.isSelected()) {
             u.setSexo("Feminino");
         } else if (rbMasculino.isSelected()) {
-            u.setSexo("Masculino"); 
+            u.setSexo("Masculino");
         }
 
-       try {
+        try {
             String data = txData.getText();
             u.setData(new SimpleDateFormat("dd/MM/yyy").parse(data));
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Erro ao converter a data");
         }
-        
+
         UsuarioController uc = new UsuarioController();
-        uc.salvar(u);
+        int id = uc.salvar(u);
+
+        if (id > 0) {
+            //JOptionPane.showMessageDialog(null, "Salvo com sucesso!");            
+            modelo.addRow(new Object[]{
+                id, u.getNome(), u.getCpf(), u.getLogin()});
+        }
+        dispose();
 
     }//GEN-LAST:event_btSalvarActionPerformed
-
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UsuarioInserirGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UsuarioInserirGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UsuarioInserirGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UsuarioInserirGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new UsuarioInserirGUI().setVisible(true);
-            }
-        });
-    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btLimpar;
     private javax.swing.JButton btSalvar;

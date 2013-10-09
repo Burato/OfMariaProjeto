@@ -133,6 +133,7 @@ public class UsuarioListaGUI extends javax.swing.JFrame {
     private void btInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btInserirActionPerformed
         // TODO add your handling code here:
         UsuarioInserirGUI ui = new UsuarioInserirGUI();
+        ui.setLocationRelativeTo(null);
         ui.setVisible(true);
     }//GEN-LAST:event_btInserirActionPerformed
 
