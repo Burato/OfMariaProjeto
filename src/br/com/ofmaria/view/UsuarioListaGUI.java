@@ -4,6 +4,7 @@
  */
 package br.com.ofmaria.view;
 
+import br.com.ofmaria.controller.UsuarioController;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -171,8 +172,18 @@ public class UsuarioListaGUI extends javax.swing.JFrame {
         tabela = new JTable(modelo);
         modelo.addColumn("Id");
         modelo.addColumn("Nome");
-        modelo.addColumn("Usuario");
+        modelo.addColumn("Usuário");
         modelo.addColumn("CPF");
-        
+
+    }
+
+    private void preencherJTable() {
+        UsuarioController uc = new UsuarioController();
+        for (Usuario u : uc.listarTodos()) {
+            modelo.addRow(new Object[]{
+                u.getCodigo(), u.getNome(), u.getCpf(), u.getLogin()
+            });
+
+        }
     }
 }
